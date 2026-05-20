@@ -7,10 +7,9 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\LapanganController;
 use App\Http\Controllers\Admin\ReservasiController;
 
-// ─── PUBLIC ROUTES ────────────────────────────────────────────────────────────
-Route::get('/', [LandingController::class, 'index'])->name('landing');
-Route::get('/reservasi', [LandingController::class, 'reservasi'])->name('reservasi');
-Route::post('/reservasi', [LandingController::class, 'storeReservasi'])->name('reservasi.store');
+// ─── PUBLIC ROUTES (REDIRECT TO ADMIN CONSOLE) ──────────────────────────────
+Route::redirect('/', '/admin/dashboard')->name('landing');
+
 
 // ─── ADMIN AUTH ───────────────────────────────────────────────────────────────
 Route::prefix('admin')->name('admin.')->group(function () {
